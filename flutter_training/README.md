@@ -1,6 +1,6 @@
-# flutter_training
+# photo_doctor
 
-A flutter aplication to training
+A new Flutter application.
 
 ## Getting Started
 

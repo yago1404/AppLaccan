@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_training/page2.dart';
+import 'package:photo_doctor/about.dart';
+import 'package:photo_doctor/navigator_drawer.dart';
+import 'package:photo_doctor/page2.dart';
 
 class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text("Photo Doctor"),
         centerTitle: true,
       ),
 
       body: _body(context),
 
-      drawer: _drawer(context),
+      drawer: NavigatorDrawer(),
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.camera_alt),
+        backgroundColor: Colors.purple,
         onPressed: () => _onClickCamera(context),
       ),
 
@@ -34,99 +37,62 @@ _onClickCamera(context) {
 
 }
 
-_drawer(context) {
-  return Container(
-    padding: EdgeInsets.only(top: 80),
-    color: Colors.blue,
-    width: 300,
-    child: _buttonList(context),
-  );
-}
-
-_buttonList(context) {
-  return ListView(
-    children: <Widget>[
-
-      Container(
-        margin: EdgeInsets.only(top : 60),
-        child: RaisedButton(
-
-          padding: EdgeInsets.only(left:0, right: 0),
-          child: Text("Tirar Foto"),
-          onPressed: () => _onClickCamera(context),
-
-
-        ),
-      ),
-
-
-  //      margin: EdgeInsets.only(top: 12),
-      SizedBox(
-        width: 10,
-        height: 50,
-        child: RaisedButton(
-          child: Text("Acessar galeria"),
-          onPressed: (){},
-        ),
-      )
-
-
-    ],
-  );
-}
 
 _body(context) {
   return Container(
-    margin: EdgeInsets.only(top: 20),
+    color: Colors.white,
     child: ListView(
-
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Como Usar",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  ),
+            Image.asset("assets/images/laccan.png"),
+
+
+            Container(
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                decoration: BoxDecoration(
+                    color: Colors.white
+                ),
+                child:  ListTile(
+                  title: Text("Sobre"),
+                  subtitle: Text("Saiba mais sobre o projeto do Photo Doctor e sobre seus idealizadores"),
+                  trailing: _buildButton("Sobre", (){Navigator.push(context, MaterialPageRoute(builder: (context) => About()));}),
                 )
-              ],
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                decoration: BoxDecoration(
+                    color: Colors.white
+                ),
+                child:  ListTile(
+                  title: Text("Como usar"),
+                  subtitle: Text("Saiba como usar o Photo Doctor para auxiliar no diagnostico de leximaniose"),
+                  trailing: _buildButton("Como Usar", (){}),
+                )
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                decoration: BoxDecoration(
+                    color: Colors.white
+                ),
+                child:  ListTile(
+                  title: Text("Contato"),
+                  subtitle: Text("Entre em contato conosco para sujestões e dúvidas sobre o aplicativo"),
+                  trailing: _buildButton("Contato", (){}),
+                )
             ),
 
-            _pageView(),
-
-            Column(
-              children: <Widget>[
-                _buildButton("Tirar Foto",() => _onClickCamera(context)),
-
-                _buildButton("Usar Galeria",(){}),
-              ],
-            )
 
           ],
         ),
     );
 }
 
-_pageView() {
-
-  return Container(
-    margin: EdgeInsets.only(top : 20, bottom: 20),
-    height: 300,
-    child: PageView(
-      children: [
-        Image.asset("assets/images/imagem1.png",),
-        Image.asset("assets/images/imagem2.png",),
-        Image.asset("assets/images/imagem3.png",),
-        Image.asset("assets/images/imagem4.png",),
-      ],
-    ),
-  );
-}
 
 _buildButton(String buttonString, Function buttonFunction) {
   return RaisedButton(
-    color: Colors.blue,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(18.5)
+    ),
+    color: Colors.purple,
     onPressed: buttonFunction,
     child: Text(buttonString, style: TextStyle(color: Colors.white),),
   );
