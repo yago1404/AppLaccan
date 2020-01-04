@@ -1,6 +1,6 @@
 # photo_doctor
 
-A new Flutter application.
+It is an application to help doctors in the diagnosis of leixmaniasis
 
 ## Getting Started
 
