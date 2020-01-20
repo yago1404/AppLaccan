@@ -65,7 +65,7 @@ class HowToUse extends StatelessWidget {
           _space(20),
           Row(
             children: <Widget>[
-              Text("Logo apos será aberto a cámera compativel com\nseu smartphone\n\n\nOBS.: na primeira vez que utilizar a cámera do\nphoto doctor será feito um pre-cache então\na foto que você tirar na primeira vez não sera carregada\nmas após isso basta fechar a cámera e abrir de novo\nque conseguira usalo normalmente")
+              Text("Logo apos será aberto a câmera compativel com\nseu smartphone\n\n\nOBS.: na primeira vez que utilizar a câmera do\nphoto doctor será feito um pre-cache então\na foto que você tirar na primeira vez não será carregada\nmas após isso basta fechar a câmera e abrir novamente\nque conseguira usalo normalmente")
             ],
           ),
           _space(20),
@@ -83,7 +83,7 @@ class HowToUse extends StatelessWidget {
           _space(20),
           Row(
             children: <Widget>[
-              Text("Basta tocar em analizar para que possamos\nclassificar a foto, ou novamente na cámera para\nrepetir o processo")
+              Text("Basta tocar em analizar para que possamos\nclassificar a foto, ou novamente na câmera para\nrepetir o processo")
             ],
           ),
           _space(30)

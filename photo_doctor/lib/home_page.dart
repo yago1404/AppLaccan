@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_doctor/about.dart';
+import 'package:photo_doctor/contact.dart';
 import 'package:photo_doctor/howToUse.dart';
 import 'package:photo_doctor/navigator_drawer.dart';
 import 'package:photo_doctor/camera.dart';
@@ -83,7 +84,9 @@ _body(context) {
                 child:  ListTile(
                   title: Text("Contato"),
                   subtitle: Text("Entre em contato conosco para sujestões e dúvidas sobre o aplicativo"),
-                  trailing: _buildButton("Contato", (){}),
+                  trailing: _buildButton("Contato", (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Contact()));
+                  }),
                 )
             ),
 
