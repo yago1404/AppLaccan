@@ -1,4 +1,4 @@
-# photo
+# PhotoDoctor
 
 A new Flutter application.
 
