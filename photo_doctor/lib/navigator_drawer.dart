@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_doctor/about.dart';
 import 'package:photo_doctor/camera.dart';
 import 'package:photo_doctor/contact.dart';
-import 'package:photo_doctor/howToUse.dart';
+import 'package:photo_doctor/how_to_use.dart';
 
 class NavigatorDrawer extends StatelessWidget {
   @override
@@ -38,7 +38,7 @@ class NavigatorDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text("contato"),
+                title: Text("Contato"),
                 subtitle: Text("Entre em contato conosco"),
                 trailing: Icon(Icons.arrow_right),
                 onTap: (){

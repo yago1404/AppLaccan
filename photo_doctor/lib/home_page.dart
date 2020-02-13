@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:photo_doctor/about.dart';
 import 'package:photo_doctor/contact.dart';
-import 'package:photo_doctor/howToUse.dart';
+import 'package:photo_doctor/how_to_use.dart';
 import 'package:photo_doctor/navigator_drawer.dart';
 import 'package:photo_doctor/camera.dart';
 
@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
         title: Text("Photo Doctor"),
         centerTitle: true,
       ),
@@ -20,15 +19,6 @@ class HomePage extends StatelessWidget {
 
       drawer: NavigatorDrawer(),
 
-      floatingActionButton: FlatButton(
-        padding: EdgeInsets.only(left: 100, right: 100, top: 15, bottom: 15),
-        child: Text("Tirar uma foto",style: TextStyle(color: Colors.white),),
-        shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(18.0),
-        ),
-        color: Colors.purple,
-        onPressed: () => _onClickCamera(context),
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
     );
@@ -53,7 +43,7 @@ _body(context) {
 
 
             Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
                     color: Colors.white
                 ),
@@ -64,7 +54,7 @@ _body(context) {
                 )
             ),
             Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
                     color: Colors.white
                 ),
@@ -77,7 +67,7 @@ _body(context) {
                 )
             ),
             Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
                     color: Colors.white
                 ),
@@ -90,6 +80,24 @@ _body(context) {
                 )
             ),
 
+            SizedBox(
+              height: 10,
+            ),
+
+            Container(
+              padding: EdgeInsets.only(left: 50, right: 50),
+              child: FlatButton(
+                padding: EdgeInsets.only(top: 15, bottom: 15),
+                child: Text("Tirar uma foto",style: TextStyle(color: Colors.white),),
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                ),
+                color: Colors.purple,
+                onPressed: () => _onClickCamera(context),
+              ),
+            ),
+
+            SizedBox(height: 10,)
 
           ],
         ),

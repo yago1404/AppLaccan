@@ -41,44 +41,39 @@ class People extends StatelessWidget {
       margin: EdgeInsets.only(top: 20, left: 20),
       child: Column(
         children: <Widget>[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                name,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.black26,
-                        offset: Offset(5,5),
-                      )
-                    ]
-                ),
+          Container(
+            child: Text(
+              name,
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 10.0,
+                      color: Colors.black26,
+                      offset: Offset(5,5),
+                    ),
+                  ]
               ),
-            ],
+            ),
           ),
           SizedBox(height: 30,),
-          Row(
-            children: <Widget>[
-              Text(
-                content,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.black26,
-                        offset: Offset(5,5),
-                      )
-                    ]
-                ),
+          Container(
+            child:  Text(
+              content,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 10.0,
+                      color: Colors.black26,
+                      offset: Offset(5,5),
+                    )
+                  ]
               ),
-            ],
+            ),
           ),
           SizedBox(
             height: 35,

@@ -42,24 +42,24 @@ class About extends StatelessWidget {
       children: <Widget>[
         People(
             "Yago Taveiros",
-            'Responssael pela criação da aplicação\ne conexãocom a API remota desenvolvida\nem pesquisa.',
+            'Responssael pela criação da aplicação e conexãocom a API remota desenvolvida em pesquisa.',
             link : "yago1404",
         ),
         People(
           "André Aquino",
-          'Responssael pela gerencia e orientalçao\nda pesuisa realizada no laboratorio\nlaccan',
+          'Responssael pela gerencia e orientalçao da pesuisa realizada no laboratorio laccan',
         ),
         People(
           "Pessoa",
-          'Responssael pela criação da aplicação\ne conexãocom a API remota\ndesenvolvida em pesquisa.',
+          'Responssael pela criação da aplicação e conexãocom a API remota desenvolvida em pesquisa.',
         ),
         People(
             "Outra pessoa",
-            'Responssael pela criação da aplicação\ne conexãocom a API remota\ndesenvolvida em pesquisa.',
+            'Responssael pela criação da aplicação e conexãocom a API remota desenvolvida em pesquisa.',
         ),
         People(
             "Mais uma",
-            'Responssael pela criação da aplicação\ne conexãocom a API remota\ndesenvolvida em pesquisa.',
+            'Responssael pela criação da aplicação e conexãocom a API remota desenvolvida em pesquisa.',
         ),
       ],
     );

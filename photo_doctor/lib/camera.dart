@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:photo_doctor/extra_data.dart';
 
 class Camera extends StatefulWidget {
   @override
@@ -57,10 +58,8 @@ class _CameraState extends State<Camera> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            children: <Widget>[
-              Image.file(image, width: 350, )
-            ],
+          Container(
+            child : Image.file(image, width: 350, fit: BoxFit.contain,)
           ),
           SizedBox(
             height: 20,
@@ -71,7 +70,9 @@ class _CameraState extends State<Camera> {
                 color: Colors.purple,
                 textColor: Colors.white,
 
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => ExtraData(this.image)));
+                },
                 child: Text("Analizar"),
               ),
             ],
