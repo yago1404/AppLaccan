@@ -1,27 +1,32 @@
-
 import 'package:flutter/material.dart';
-import 'flat_action_button.dart';
+import 'package:photo_doctor/home_page.dart';
+import 'package:splashscreen/splashscreen.dart';
 
+class Welcome extends StatefulWidget {
+  @override
+  _WelcomeState createState() => _WelcomeState();
+}
 
-class Welcome extends StatelessWidget {
+class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.purple,
-        child:Center(
-          child: Text(
-            "Photo Doctor",
-            style: TextStyle(
-              color: Colors.white,
-              decoration: TextDecoration.none,
-              fontSize: 50,
+    return Stack(
+      children: <Widget>[
+        SplashScreen(
+          seconds: 4,
+          backgroundColor: Colors.purple,
+          navigateAfterSeconds: HomePage(),
+          loaderColor: Colors.transparent,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/camera.png"),
+              fit: BoxFit.contain,
             ),
           ),
-        ),
-      ),
-      floatingActionButton: FAButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        )
+      ],
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:circular_check_box/circular_check_box.dart';
+import 'package:photo_doctor/result.dart';
 
 // ignore: must_be_immutable
 class ExtraData extends StatefulWidget {
@@ -135,11 +136,38 @@ class _ExtraDataState extends State<ExtraData> {
                 color: Colors.white,
               ),
             ),
-            onPressed: (){},
+            onPressed: (){
+              if((this.a_option || this.b_option || this.c_option) && (this.d_option || this.e_option || this.f_option)){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Result()));
+              }
+              else{
+                _showDialog(context);
+              }
+            },
             color: Colors.purple,
           ),
         ),
       ],
     );
   }
+
+   _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context){
+        return AlertDialog(
+          title: Text("Algo deu errado"),
+          content: Text("Verifique se você preencheu os campos necessários"),
+          actions: <Widget>[
+            FlatButton(
+              child: new Text("fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      }
+    );
+   }
 }

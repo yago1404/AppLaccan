@@ -1,4 +1,4 @@
-package com.example.photo
+package com.photodoctor.photo_doctor
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

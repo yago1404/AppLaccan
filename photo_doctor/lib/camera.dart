@@ -1,8 +1,8 @@
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:photo_doctor/extra_data.dart';
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 
 class Camera extends StatefulWidget {
   @override
@@ -11,17 +11,18 @@ class Camera extends StatefulWidget {
 
 class _CameraState extends State<Camera> {
 
-  File image;
+  File imageFile;
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Analizar foto")
+        title: Text("Analizar foto"),
+        centerTitle: true,
       ),
       body: Center(
-        child: image == null ? Text("Sem Imagem no momento") : _img(image),
+        child: imageFile == null ? Text("Sem Imagem no momento") : _img(imageFile),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple,
@@ -37,8 +38,9 @@ class _CameraState extends State<Camera> {
   _takePicture() async {
     var picture = await ImagePicker.pickImage(source: ImageSource.camera);
     this.setState((){
-      image = picture;
+      imageFile = picture;
     });
+    await _analyzeImage();
   }
 
   _img(File image) {
@@ -71,7 +73,7 @@ class _CameraState extends State<Camera> {
                 textColor: Colors.white,
 
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context) => ExtraData(this.image)));
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => ExtraData(this.imageFile)));
                 },
                 child: Text("Analizar"),
               ),
@@ -81,5 +83,46 @@ class _CameraState extends State<Camera> {
       ),
     );
 
+  }
+
+  _analyzeImage() async {
+    print("\n\n");
+    final FirebaseVisionImage visionImage = FirebaseVisionImage.fromFile(imageFile);
+    var faceDetector = FirebaseVision.instance.faceDetector(
+      FaceDetectorOptions(
+        mode: FaceDetectorMode.accurate,
+        minFaceSize: 0.15,
+        enableLandmarks: true,
+        enableClassification: true
+      )
+    );
+    final List<Face> faces = await faceDetector.processImage(visionImage);
+    print("\n\n");
+    for (Face face in faces){
+
+
+      final double rotY = face.headEulerAngleY; // Head is rotated to the right rotY degrees
+      final double rotZ = face.headEulerAngleZ;
+
+      print("$rotY AND $rotZ");
+
+      final smilingProbability = face.smilingProbability;
+      print("\n\n SMILY PROB $smilingProbability \n\n");
+      showDialog(context: context, builder: (context){
+        return AlertDialog(
+          title: Text("Porbabilidade de sorriso"),
+          content: Text("$smilingProbability"),
+          actions: <Widget>[
+            FlatButton(
+              child: Text("OK"),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      });
+    }
+    faceDetector.close();
   }
 }
